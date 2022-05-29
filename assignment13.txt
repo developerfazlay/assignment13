@@ -1,0 +1,121 @@
+<!-- database creation -->
+CREATE DATABASE user_information
+
+
+
+<!-- users table creation -->
+CREATE TABLE users (
+    id int NOT NULL AUTO_INCREMENT,
+    username varchar(255) NOT NULL,
+    age int,
+    phone varchar(20),
+    address varchar(255),
+    created_at timestamp NOT NULL DEFAULT current_timestamp(),
+    updated_at timestamp DEFAULT current_timestamp(),
+    
+    PRIMARY KEY (id)
+);
+
+
+<!-- Single Insert on users -->
+
+INSERT INTO users(username, age, phone, address) VALUES ('fazlay_rabbi','28','01944160500','Melandah- Jamalpur')
+
+<!-- Multiple Insert users -->
+INSERT INTO users(username, age, phone, address) VALUES ('Fazlay','30','01793469325','Bakshiganj- Jamalpur'), ('Rabbi', '29', '01789165666', 'Jamalpur')
+
+
+
+<!-- Update query for users -->
+
+UPDATE users SET username = 'Morium', age= '25', phone='01789165666', address="Bakshiganj Jamalpur" WHERE id = 1;
+
+
+<!--Delete query for users -->
+DELETE FROM users WHERE id=1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Products table creation -->
+CREATE TABLE products (
+    id int NOT NULL AUTO_INCREMENT,
+    post_title varchar(255) NOT NULL,
+    post_details text,
+    post_file varchar(100),
+    created_at timestamp NOT NULL DEFAULT current_timestamp(),
+    updated_at timestamp NOT NULL DEFAULT current_timestamp(),
+	deleted_at timestamp NOT NULL DEFAULT current_timestamp(),
+    
+    PRIMARY KEY (id)
+);
+
+<!-- Single Insert on products-->
+INSERT INTO products(post_title, post_details, post_file) VALUES ('Samsung Galaxy A52','Product details of Samsung Galaxy A52 (8/128 GB)','a52.jpg')
+
+
+
+<!-- Multiple Insert on products-->
+INSERT INTO products(post_title, post_details, post_file) VALUES ('Samsung Galaxy A52','Product details of Samsung Galaxy A52 (8/128 GB)','a52.jpg'),('Samsung Galaxy Phone A12','Samsung Galaxy Phone A12 - 4/64Gb - 5000 mAh Battery','a12.jpg') 
+
+
+
+<!-- Update query for Products -->
+UPDATE products SET post_title = 'realme 9', post_details= 'realme 9 - 8GB RAM / 128GB ROM', post_file='realme9.jpg' WHERE id = 1;
+
+<!-- Delete query for Products -->
+
+DELETE FROM products WHERE id=2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Comments table creation -->
+CREATE TABLE comments (
+    id int NOT NULL AUTO_INCREMENT,
+    post_id int NOT NULL,
+    comment text,
+    created_at timestamp NOT NULL DEFAULT current_timestamp(),
+    updated_at timestamp NOT NULL DEFAULT current_timestamp(),
+	deleted_at timestamp NOT NULL DEFAULT current_timestamp(),
+    
+    PRIMARY KEY (id)
+);
+
+
+<!-- Single Insert on comments-->
+INSERT INTO comments(post_id, comment) VALUES ('1','Lorem Ipsum is simply dummy text of the printing and typesetting industry')
+
+
+
+<!-- Multiple Insert on comments-->
+INSERT INTO comments(post_id, comment) VALUES (1,'Lorem Ipsum is simply dummy text of the printing and typesetting industry'), (2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry 2')
+
+
+<!-- Update query for Comments -->
+UPDATE comments SET comment = 'simply updated dummy text of the printing and typesetting industry' WHERE id = 1;
+
+<!-- Delete query for Comments -->
+DELETE FROM Comments WHERE id=1;
+     
